@@ -1,0 +1,35 @@
+doctype 5
+html
+	head
+		title= "Uptimes"
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+		script(src='/javascripts/jquery-1.10.1.min.js')
+	body
+		h1 Uptime percentages
+		table
+			thead
+				tr
+					th Percent
+					th Minutes per year
+					th Minutes per month
+			tbody
+				each uptime in uptimes
+					tr
+						td #{uptime.percent.toFixed(2)}
+						td #{uptime.min_per_year.toFixed(2)}
+						td #{uptime.min_per_month.toFixed(2)}
+		p Enter just one value
+		div#uptime_form
+			form(action='/uptimes', method='post')
+				div.form_field
+					label(for='percent') Percent
+					input(id='percent',type='text',name='percent')
+				div.form_field
+					label(for='min_per_year') Minutes per year
+					input(id='min_per_year',type='text',name='min_per_year')
+				div.form_field
+					label(for='min_per_month') Minutes per month
+					input(id='min_per_month',type='text',name='min_per_month')
+				div.form_field
+					input(type='submit', value='Submit', id='submit_button')

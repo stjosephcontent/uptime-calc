@@ -1,0 +1,22 @@
+{
+	"name": "uptime-calc",
+	"version": "0.1.0-9",
+	"author": "David Hoffman <dhoffman@saintjosephcontent.com>",
+	"description": "Convert uptimes to minutes per year, minutes per month, and percentages. Record and display results",
+	"scripts": {
+		"test": "make test",
+		"start": "node app.js"
+	},
+	"dependencies": {
+		"chai": "~1.4.2",
+		"mocha": "*",
+		"express": "*",
+		"jade": "*",
+		"sprintf": "*",
+		"mongodb": "*"
+	},
+	"engines": {
+		"node": ">=0.8"
+	},
+	"subdomain": "seanatsjc-uptime-calc"
+}
