@@ -2,7 +2,7 @@
 	"name": "uptime-calc",
 	"version": "0.1.0-12",
 	"author": "David Hoffman <dhoffman@saintjosephcontent.com>",
-	"description": "Convert uptimes to minutes per year, minutes per month, and percentages. Record and display results",
+	"description": "Convert uptime percentages to allowable downtime in minutes per month and per year. Record and display results",
 	"scripts": {
 		"test": "make test",
 		"start": "node app.js"
