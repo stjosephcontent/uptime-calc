@@ -1,8 +1,6 @@
 var MINUTES_PER_YEAR = 525949
   , MINUTES_PER_MONTH = 43829.1;
-  
-var uptime_collection =require('../uptime_collection');
-
+ 
 var calc_entry = function(entry) {
 	var key
 	  , pct_down;

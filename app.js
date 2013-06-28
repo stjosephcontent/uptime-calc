@@ -3,6 +3,8 @@ var express = require('express')
   , path = require('path')
   , http = require('http')
   , sprintf = require('sprintf');
+
+GLOBAL.uptime_collection =require('./uptime_collection');
  
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -22,3 +24,4 @@ http.createServer(app).listen(app.get('port'), function(){
 
 app.get('/', require('./routes/index').index);
 app.post('/uptimes', require('./routes/uptimes').post);
+app.get('/removeall', require('./routes/removeall').get);

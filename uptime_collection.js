@@ -18,3 +18,9 @@ exports.insert = function(entry) {
 		if (err) throw err;
 	});
 }
+
+exports.remove_all = function() {
+	collection.remove({}, function(err) {
+		if (err) throw err;
+	});
+}
