@@ -16,7 +16,5 @@ exports.getAll = function(callback, opts) {
 exports.insert = function(entry) {
 	collection.insert(entry, function(err, docs){ 
 		if (err) throw err;
-		console.log('Inserting: ');
-		console.dir(docs);
 	});
 }

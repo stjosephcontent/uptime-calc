@@ -4,28 +4,30 @@ var MINUTES_PER_YEAR = 525949
 var uptime_collection =require('../uptime_collection');
 
 var calc_entry = function(entry) {
-	var key;
-	console.log('preentry:');
-	console.log(entry);
+	var key
+	  , pct_down;
+
 	if (entry.percent !== "") {
-		entry.min_per_year = (MINUTES_PER_YEAR * (entry.percent / 100));
-		entry.min_per_month = (MINUTES_PER_MONTH * (entry.percent / 100));
+		pct_down = 100 - (entry.percent);
+		entry.min_per_year = ((MINUTES_PER_YEAR * (pct_down / 100)));
+		entry.min_per_month = ((MINUTES_PER_MONTH * (pct_down / 100)));
 		
 	} else if (entry.min_per_month !== "") {
-		entry.percent = (entry.min_per_month / MINUTES_PER_MONTH) * 100;
-		entry.min_per_year = MINUTES_PER_YEAR * (entry.percent / 100);
+		entry.percent = (((MINUTES_PER_MONTH - entry.min_per_month) / MINUTES_PER_MONTH) * 100);
+		pct_down = 100 - (entry.percent);
+		entry.min_per_year = ((MINUTES_PER_YEAR * (pct_down / 100)));
 		
 	} else if (entry.min_per_year !== "") {
-		entry.percent = (entry.min_per_year / MINUTES_PER_YEAR) * 100;
-		entry.min_per_month = (MINUTES_PER_MONTH * (entry.percent / 100));
+		entry.percent = (((MINUTES_PER_YEAR - entry.min_per_year) / MINUTES_PER_YEAR) * 100);
+		pct_down = 100 - (entry.percent);
+		entry.min_per_month = ((MINUTES_PER_MONTH * (pct_down / 100)));
 	}
 	
 	// turn strings into floats
 	for (key in entry) {
 		entry[key] = parseFloat(entry[key]);
 	}
-	console.log('postentry:');
-	console.log(entry);
+
 	return entry;
 }
 
